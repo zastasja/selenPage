@@ -1,6 +1,4 @@
 from selenium.common.exceptions import NoSuchElementException
-from .locators import NavbarLocators
-
 
 class BasePage():
 

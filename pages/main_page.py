@@ -2,15 +2,21 @@ from .base_page import BasePage
 from .locators import NavbarLocators
 from selenium.webdriver.common.by import By
 
-# link = "https://www.selenium.dev/"
+link = "https://www.selenium.dev/"
 
 
 class MainPage(BasePage):
 
-    def go_to_about_page():
-        BasePage.open_page()
-        assert "https://www.selenium.dev/" == BasePage.should_be_current_page(), 'wrong URL'
-        BasePage.click_element(*NavbarLocators.NAVBAR_ABOUT)
-        BasePage.click_element(*NavbarLocators.NAVBAR_ABOUT_SEL)
+    def open_mainPage(self):
+        self.open_page()
+        self.should_be_current_page(link)
 
+    def dropdown_menu(self):
+        self.click_element(*NavbarLocators.NAVBAR_ABOUT)
+
+    def dropdown_menu_about(self):
+        self.click_element(*NavbarLocators.NAVBAR_ABOUT_SEL)
+
+    def dropdown_menu_structure(self):
+        self.click_element(*NavbarLocators.NAVBAR_STRUCTURE)
 
