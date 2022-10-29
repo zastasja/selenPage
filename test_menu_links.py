@@ -41,3 +41,9 @@ def test_open_blog(browser):
     page.open_mainPage()
     page.click_element(*NavbarLocators.NAVBAR_BLOG)
     page.should_be_current_page(f'{link}blog/')
+
+def test_search(browser):
+    page = MainPage(browser, link)
+    page.open_mainPage()
+    page.click_element(*NavbarLocators.NAVBAR_SEARCH)
+    page.sendkeys_element(*NavbarLocators.NAVBAR_SEARCH_INPUT, "Send keys")

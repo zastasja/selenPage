@@ -1,5 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.common.keys import Keys
 class BasePage():
 
     def __init__(self, browser, link):
@@ -11,6 +11,9 @@ class BasePage():
 
     def click_element(self, method, locator):
         self.browser.find_element(method, locator).click()
+
+    def sendkeys_element(self, method, locator, text):
+        self.browser.find_element(method, locator).send_keys(text)
 
     def element_is_present(self, method, locator):
         try:

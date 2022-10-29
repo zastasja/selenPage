@@ -9,5 +9,7 @@ class NavbarLocators():
     NAVBAR_SUPPORT = (By.XPATH, "//span[text()='Support']")
     NAVBAR_BLOG = (By.XPATH, "//span[text()='Blog']")
     NAVBAR_LANG = (By.XPATH, "//a[text()='English']")
-    NAVBAR_ABOUT_SEL = (By.XPATH, '//*[@id="main_navbar"]/ul/li[2]/div/a[1]')
+    NAVBAR_ABOUT_SEL = (By.XPATH, "//a[@class='dropdown-item'][text()='About Selenium']")
     NAVBAR_STRUCTURE = (By.XPATH, "//a[text() ='Structure and Governance']")
+    NAVBAR_SEARCH = (By.XPATH, "//span[text()='Search']")
+    NAVBAR_SEARCH_INPUT = (By.CSS_SELECTOR, ".DocSearch-Input")
