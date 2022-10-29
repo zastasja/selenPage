@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "selenium"
+name = "selenpage"
 version = "0.1.0"
 description = ""
 authors = ["zastasja <anastasia_zh@bk.ru>"]
@@ -8,8 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^7.2.0"
+flack = "^1.3.7"
+black = "^22.10.0"
 webdriver-manager = "^3.8.4"
-
+selenium = "^4.5.0"
 
 [build-system]
 requires = ["poetry-core"]
