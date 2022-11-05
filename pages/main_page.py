@@ -6,7 +6,6 @@ link = "https://www.selenium.dev/"
 
 
 class MainPage(BasePage):
-
     def open_mainPage(self):
         self.open_page()
         self.should_be_current_page(link)
@@ -19,4 +18,3 @@ class MainPage(BasePage):
 
     def dropdown_menu_structure(self):
         self.click_element(*NavbarLocators.NAVBAR_STRUCTURE)
-

@@ -1,7 +1,8 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
-class BasePage():
 
+
+class BasePage:
     def __init__(self, browser, link):
         self.browser = browser
         self.link = link
@@ -23,4 +24,4 @@ class BasePage():
         return True
 
     def should_be_current_page(self, link):
-        assert link in self.browser.current_url, 'wrong url'
+        assert link in self.browser.current_url, "wrong url"
