@@ -29,8 +29,6 @@ jobs:
           extra-black-options: ". -S"
           extra-mypy-options: ""
           extra-isort-options: ""
-      - name: Update repo
-        run: sudo apt-get update
       - name: Install software
         uses: browser-actions/setup-chrome@latest
         run: chrome --version
