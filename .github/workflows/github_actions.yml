@@ -31,10 +31,10 @@ jobs:
           extra-isort-options: ""
       - name: Install software
         uses: browser-actions/setup-chrome@latest
-        run: chrome --version
+        uses: chrome --version
       - name: Install Poetry and dependencies
-        run: |
+        uses: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
       - name: Run pytest
-        run: poetry run pytest
+        uses: poetry run pytest
