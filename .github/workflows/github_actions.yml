@@ -39,16 +39,16 @@ jobs:
         run: firefox --version
       - name: Install and configure Poetry
         uses: snok/install-poetry@v1
-        with:
-          version: 1.2.2
-          virtualenvs-create: true
-          virtualenvs-in-project: false
-          virtualenvs-path: {cache-dir}/virtualenvs
-          installer-parallel: true
+          with:
+            version: 1.2.2
+            virtualenvs-create: true
+            virtualenvs-in-project: false
+            virtualenvs-path: {cache-dir}/virtualenvs
+            installer-parallel: true
       - name: Install and configure Poetry
         uses: snok/install-poetry@v1
-        with:
-          installation-arguments: --git https://github.com/python-poetry/poetry.git@69bd6820e320f84900103fdf867e24b355d6aa5d
+          with:
+            installation-arguments: --git https://github.com/python-poetry/poetry.git@69bd6820e320f84900103fdf867e24b355d6aa5d
         run: poetry install
       - name: Run pytest
         run: poetry run pytest
