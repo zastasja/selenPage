@@ -30,8 +30,10 @@ jobs:
           extra-mypy-options: ""
           extra-isort-options: ""
       - name: Install Chrome
-        uses: browser-actions/setup-chrome@latest
-        run: chrome --version
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          chrome --version
       - name: Install Poetry and dependencies
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
