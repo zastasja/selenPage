@@ -33,11 +33,7 @@ jobs:
         run: sudo apt-get update
       - name: Install software
         run: sudo apt-get install -y chromium-browser firefox
-      - name: Chromium version
-        run: Chromium-browser --version
-      - name: Firefox version
-        run: firefox --version
-      - name: Install Poetry and dependances
+      - name: Install Poetry and dependencies
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
