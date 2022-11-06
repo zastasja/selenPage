@@ -1,18 +1,54 @@
-name: github-actions
-on: [push]
+name: Python testing selenium_dev
+
+on: [push, pull_request]
+
 jobs:
-  github-actions:
+  build:
+
     runs-on: ubuntu-latest
     steps:
-      - name: Check out this repo
+      - name: Checkout this repo
         uses: actions/checkout@v3
-      - name: Install python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Install poetry
-        run: curl -sSL https://install.python-poetry.org | python3 -
-      - name: Install dependencies
+        name: Black and Flack8
+        uses: ricardochaves/python-lint@v1.4.0
+        with:
+            python-root-list: ""
+            use-pylint: false
+            use-pycodestyle: false
+            use-flake8: true
+            use-black: true
+            use-mypy: false
+            use-isort: false
+            extra-pylint-options: ""
+            extra-pycodestyle-options: ""
+            extra-flake8-options: "--count --benchmark --ignore=E501"
+            extra-black-options: ". -S"
+            extra-mypy-options: ""
+            extra-isort-options: ""
+      - name: Update repo
+        run: sudo apt-get update
+      - name: Install software
+        run: sudo apt-get install -y chromium-browser firefox
+      - name: Chromium version
+        run: Chromium-browser --version
+      - name: Firefox version
+        run: firefox --version
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.2.2
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: {cache-dir}/virtualenvs
+          installer-parallel: true
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          installation-arguments: --git https://github.com/python-poetry/poetry.git@69bd6820e320f84900103fdf867e24b355d6aa5d
         run: poetry install
-      - name: Test with pytest
-        run: poetry run pytest -v
+      - name: Run pytest
+        run: poetry run pytest
