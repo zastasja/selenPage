@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope="function")
 
 # def init_chrome_browser():
 #     o = webdriver.ChromeOptions()
@@ -14,6 +14,7 @@ from selenium.webdriver.common.keys import Keys
 #     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 #     yield browser
 #     browser.quit()
+
 
 def browser():
     o = webdriver.FirefoxOptions()
