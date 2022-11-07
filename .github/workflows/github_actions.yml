@@ -10,6 +10,8 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ['3.10']
+        firefox: [ '84.0', 'latest-beta', 'latest-devedition', 'latest-esr', 'latest' ]
+    name: Firefox ${{ matrix.firefox }}
 
     steps:
     - uses: actions/checkout@v3
@@ -49,6 +51,12 @@ jobs:
       uses: browser-actions/setup-chrome@latest
     - name: check chrome version
       run: chrome --version
+
+    - name: Install Firefox ${{ matrix.firefox }}
+      uses: browser-actions/setup-firefox@latest
+      with:
+        firefox-version: ${{ matrix.firefox }}
+    - run: firefox --version
 
     - name: Run tests
       run: poetry run pytest -v
