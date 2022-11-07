@@ -8,14 +8,14 @@ from selenium.webdriver.common.keys import Keys
 
 @pytest.fixture(scope='function')
 
-def init_chrome_browser():
-    o = webdriver.ChromeOptions()
-    o.headless = True
-    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    yield browser
-    browser.quit()
+# def init_chrome_browser():
+#     o = webdriver.ChromeOptions()
+#     o.headless = True
+#     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+#     yield browser
+#     browser.quit()
 
-def init_firefox_browser():
+def browser():
     o = webdriver.FirefoxOptions()
     o.headless = True
     browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
